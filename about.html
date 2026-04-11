@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>About | voxxel</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Indie+Flower&family=Meow+Script&family=Yatra+One&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="cursor.css">
+	<style>
+	body { margin: 0; padding: 0; background: black; color: #fff; font-family: 'Segoe UI', Arial, Helvetica, sans-serif; font-weight: 400; }
+	main { width: 80%; margin: 0 auto; }
+	.hero { text-align: center; margin-top: 80px; margin-bottom: 60px; }
+	.hero h1 { font-family: 'Boldonse', Arial, Helvetica, sans-serif; font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 600; margin-bottom: 18px; letter-spacing: 2px; opacity: 0; animation: fadeIn 1.2s 0.1s forwards; }
+	.hero p { font-size: 1.25rem; color: #ccc; max-width: 600px; margin: 0 auto; opacity: 0; animation: fadeIn 1.2s 0.3s forwards; }
+	@keyframes fadeIn { to { opacity: 1; } }
+	.about-section { max-width: 800px; margin: 60px auto 40px auto; font-size: 1.13rem; color: #e0e0e0; line-height: 1.7; font-family: 'Segoe UI', Arial, Helvetica, sans-serif; font-weight: 400; }
+	.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; max-width: 900px; margin: 60px auto 40px auto; }
+	.skill-card { background: rgba(30,30,30,0.85); border-radius: 18px; padding: 38px 24px; text-align: center; box-shadow: 0 4px 24px 0 rgba(31,38,135,0.13); font-family: 'Segoe UI', Arial, Helvetica, sans-serif; font-size: 1.13rem; letter-spacing: 1px; color: #fff; font-weight: 500; transition: transform .3s, box-shadow .3s; }
+	.skill-card:hover { transform: translateY(-6px) scale(1.04); box-shadow: 0 8px 32px 0 rgba(31,38,135,0.22); }
+	.philosophy { text-align: center; margin: 70px auto 60px auto; font-size: 1.35rem; color: #fff; font-family: 'Segoe UI', Arial, Helvetica, sans-serif; font-weight: 400; letter-spacing: 1.5px; max-width: 700px; }
+	footer { width: 100%; text-align: center; padding: 40px 0 24px 0; color: #888; font-size: 1rem; letter-spacing: 1px; background: transparent; margin-top: 80px; font-family: 'Segoe UI', Arial, Helvetica, sans-serif; font-weight: 400; }
+	@media (max-width: 700px) { main { width: 97%; } .hero { margin-top: 40px; } }
+    nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            width: 70%;
+            padding: 15px 0; 
+            margin: 10px auto;
+        }
+
+        nav .logo img {
+            height: 35px;
+            width: auto;
+        }
+
+        nav > .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav > .links > a {
+            color: white;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+	</style>
+</head>
+<body>
+	<nav>
+	<a class="logo" href="index.html">
+			<img src="voxxel logo.svg" alt="Voxxel Logo">
+	</a>
+	<div class="links">
+			<a href="about.html">About</a>
+			<a href="index.html">Work</a>
+			<a href="contact.html">Contact</a>
+	</div>
+	</nav>
+	<main>
+	<section class="hero">
+			<h1>The Mind Behind the Work</h1>
+			<p>Hi, I'm a 3D artist passionate about visual storytelling, immersive environments, and creative technology. My work blends cinematic style with technical curiosity—always chasing the next idea worth building.</p>
+	</section>
+	<section class="about-section">
+			<p>With a background in 3D art and a technical mindset, I thrive at the intersection of creativity and logic. My journey began with a fascination for digital worlds and has evolved into a practice focused on detail, atmosphere, and narrative.</p>
+			<p>I approach every project as a story—whether it's a single render or a full animation. Experimentation, lighting, and composition are my tools for evoking emotion and depth. I believe the best work comes from pushing boundaries and embracing new techniques.</p>
+			<p>My workflow is hands-on and iterative, using industry-standard tools and custom scripts to bring ideas to life. From modeling and sculpting to rendering and post, I enjoy every step of the process.</p>
+	</section>
+	<section class="skills-grid">
+			<div class="skill-card">3D Modeling</div>
+			<div class="skill-card">Environment Design</div>
+			<div class="skill-card">Lighting & Rendering</div>
+			<div class="skill-card">Motion / Animation</div>
+	</section>
+	<section class="philosophy">
+			Creativity is the art of logic—design is where imagination meets precision.
+	</section>
+	</main>
+	<footer>
+	&copy; 2026 voxxel. All rights reserved.
+	</footer>
+	<script src="cursor.js" defer></script>
+</body>
+</html>

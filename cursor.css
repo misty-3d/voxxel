@@ -1,0 +1,29 @@
+:root{
+    --cursor-outer-size:36px;
+    --cursor-outer-border:2px;
+    --cursor-inner-size:10px;
+    --cursor-color:rgba(255,255,255,0.95);
+    --cursor-z-index:99999;
+}
+
+/* wrapper */
+.custom-cursor{position:fixed;top:0;left:0;width:0;height:0;z-index:var(--cursor-z-index);pointer-events:none}
+.custom-cursor .outer,.custom-cursor .inner{position:fixed;left:0;top:0;transform:translate(-50%, -50%) scale(1);transition:transform 180ms ease,opacity 180ms ease,background 150ms ease;pointer-events:none;will-change:transform,opacity,background}
+
+/* outer stroke */
+.custom-cursor .outer{width:var(--cursor-outer-size);height:var(--cursor-outer-size);border:var(--cursor-outer-border) solid var(--cursor-color);border-radius:50%;background:transparent;box-sizing:border-box}
+
+/* inner solid circle */
+.custom-cursor .inner{width:var(--cursor-inner-size);height:var(--cursor-inner-size);background:var(--cursor-color);border-radius:50%;mix-blend-mode:normal;box-shadow:none}
+
+/* scale outer down on link hover */
+.custom-cursor .outer.link-hover{transform:translate(-50%, -50%) scale(0)}
+
+/* invert backdrop color inside inner circle when hovering links */
+.custom-cursor .inner.invert{background:#fff;mix-blend-mode:difference;-webkit-backdrop-filter:invert(1);backdrop-filter:invert(1)}
+
+/* Hide custom cursor on touch/coarse pointers */
+@media (pointer:coarse),(hover:none){.custom-cursor{display:none!important}html.custom-cursor-enabled,html.custom-cursor-enabled *{cursor:auto!important}}
+
+/* Hide native cursor when custom enabled */
+html.custom-cursor-enabled,html.custom-cursor-enabled *{cursor:none!important}

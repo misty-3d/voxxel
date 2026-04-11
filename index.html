@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>voxxel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Indie+Flower&family=Meow+Script&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cursor.css">
+    <style>
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            width: 70%;
+            padding: 15px 0; 
+            margin: 10px auto;
+        }
+
+        nav .logo img {
+            height: 35px;
+            width: auto;
+        }
+
+        nav > .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav > .links > a {
+            color: white;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+        }
+
+        #maingrid {
+            display: grid;
+            gap: 20px;
+            height: 750px;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: repeat(7, 1fr);
+            grid-template-areas: 
+                "block1 block1 block1 block2 block2 block2 block2"
+                "block3 block3 block3 block3 block4 block4 block4";
+            width: 80%;
+            margin: 0px auto;
+            position: relative;
+        }
+
+        @media screen and (max-width: 768px) {
+            #maingrid {
+                grid-template-rows: repeat(4, 1fr);
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                    "block1"
+                    "block2"
+                    "block3"
+                    "block4";
+                height: auto;
+            }
+        }
+
+        #maingrid > section {
+            position: relative;
+            z-index: 2;
+            border-radius: 25px;
+            min-height: 0;
+            min-width: 0;
+            /* Promote each section to its own compositing layer */
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        /* ── Shared media styles ──────────────────────── */
+        .block1 img,
+        .block2 img,
+        .block3 video,
+        .block4 img {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+            /* GPU-accelerate from the start so hover scale is cheap */
+            transform: translateZ(0) scale(1);
+            backface-visibility: hidden;
+            will-change: transform;
+            transition: transform .3s ease-in-out;
+        }
+
+        /* ── Shared dark overlay ──────────────────────── */
+        .block1 .dark,
+        .block2 .dark,
+        .block3 .dark,
+        .block4 .dark {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.35);
+            z-index: 2;
+            pointer-events: none;
+            transition: background .3s ease-in-out;
+        }
+
+        /* ── Shared overlay / heading ─────────────────── */
+        .block1 .overlay,
+        .block2 .overlay,
+        .block3 .overlay,
+        .block4 .overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+        }
+
+        .block1 .overlay h1,
+        .block2 .overlay h1,
+        .block3 .overlay h1,
+        .block4 .overlay h1 {
+            margin: 0;
+            color: #fff;
+            font-size: clamp(28px, 4vw, 96px);
+            text-align: center;
+            text-shadow: 0 4px 18px rgba(0,0,0,0.7);
+            pointer-events: none;
+            font-family: "Boldonse", system-ui;
+            /* GPU-accelerate heading scale */
+            transform: translateZ(0) scale(1);
+            backface-visibility: hidden;
+            will-change: transform;
+            transition: transform .3s ease-in-out;
+        }
+
+        /* ── Shared link wrapper ──────────────────────── */
+        .block1 a,
+        .block2 a,
+        .block3 a,
+        .block4 a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: inherit;
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Per-block colors / areas ─────────────────── */
+        .block1 {
+            grid-area: block1;
+            background-color: rgb(0, 0, 0);
+            overflow: hidden;
+        }
+
+        .block2 {
+            grid-area: block2;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .block3 {
+            grid-area: block3;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .block4 {
+            grid-area: block4;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        /* ── Hover effects ────────────────────────────── */
+        #maingrid > section:hover h1 {
+            transform: translateZ(0) scale(.95);
+        }
+
+        #maingrid > section:hover img,
+        #maingrid > section:hover video {
+            transform: translateZ(0) scale(1.05);
+        }
+
+        #maingrid > section:hover .dark {
+            background: rgba(0,0,0,0.5);
+        }
+
+        /* ── Hover underline animation ────────────────── */
+        .hover-underline {
+            font-size: 2rem;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hover-underline::after,
+        .hover-underline::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #ffffff;
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease-out;
+        }
+
+        .hover-underline::before {
+            top: -5px;
+            transform-origin: left;
+        }
+
+        #maingrid > section:hover .hover-underline::after,
+        #maingrid > section:hover .hover-underline::before {
+            transform: scaleX(1);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splashscreen" style="position:fixed;z-index:99999;inset:0;display:flex;align-items:center;justify-content:center;background:#fff;transition:opacity 0.6s;">
+        <img src="voxxel logo.svg" alt="Voxxel Logo" style="height:100px;width:auto;filter:invert(1);">
+    </div>
+    <nav>
+        <a class="logo" href="index.html">
+            <img src="voxxel logo.svg" alt="Voxxel Logo">
+        </a>
+        <div class="links">
+            <a href="about.html">About</a>
+            <a href="index.html">Work</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div id="maingrid">
+
+        <section class="block1">
+            <a href="artwork.html">
+                <img src="angel to the rescue draft 2.png" alt="">
+                <div class="dark"></div>
+                <div class="overlay"><h1 class="hover-underline">ARTWORK</h1></div>
+            </a>
+        </section>
+                
+        <section class="block2">
+            <a href="archviz.html">
+                <img src="Image22.png" alt="">
+                <div class="dark"></div>
+                <div class="overlay"><h1 class="hover-underline">ARCHVIZ</h1></div>
+            </a>
+        </section>
+
+        <section class="block3">
+            <a href="animation.html">
+                <video src="wo face draft 1.mp4" loop autoplay muted playsinline preload="auto"></video>
+                <div class="dark"></div>
+                <div class="overlay"><h1 class="hover-underline">VFX & ANIMATION</h1></div>
+            </a>
+        </section>
+
+        <section class="block4">
+            <a href="mockups.html">
+                <img src="Tilt.png" alt="Mockup">
+                <div class="dark"></div>
+                <div class="overlay"><h1 class="hover-underline">MOCKUPS</h1></div>
+            </a>
+        </section>
+        
+    </div>
+
+    <script>
+        // Splash screen fade out after 1s
+        window.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                var splash = document.getElementById('splashscreen');
+                if(splash) {
+                    splash.style.opacity = '0';
+                    setTimeout(function(){ splash.style.display = 'none'; }, 600);
+                }
+            }, 1000);
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            var vids = document.querySelectorAll('.block3 video, .block4 video');
+
+            // Stagger playback so both videos don't decode simultaneously
+            vids.forEach(function(v, i) {
+                v.muted = true;
+                v.loop = true;
+                v.playsInline = true;
+
+                // Small staggered delay lets the browser finish layout/paint
+                // before starting video decode — prevents jank on first load
+                setTimeout(function() {
+                    var p = v.play();
+                    if (p && p.then) p.catch(function () {});
+                }, i * 150);
+            });
+
+            // Pause videos when tab is hidden, resume when visible
+            // Prevents background decode from stealing frame budget
+            document.addEventListener('visibilitychange', function() {
+                vids.forEach(function(v) {
+                    if (document.hidden) {
+                        v.pause();
+                    } else {
+                        var p = v.play();
+                        if (p && p.then) p.catch(function () {});
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="cursor.js" defer></script>
+</body>
+</html>

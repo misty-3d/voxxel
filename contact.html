@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Voxxel Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Indie+Flower&family=Meow+Script&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cursor.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("crJk1GouG8tngia9T"); // Replace with your EmailJS public key
+        })();
+    </script>
+    <script src="cursor.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            width: 70%;
+            padding: 15px 0; 
+            margin: 10px auto;
+        }
+        nav .logo img {
+            height: 35px;
+            width: auto;
+        }
+        nav > .links {
+            display: flex;
+            gap: 20px;
+        }
+        nav > .links > a {
+            color: white;
+            text-decoration: none;
+        }
+        .container {
+            width: 70%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        .optional-tag {
+            font-weight: normal;
+            font-size: 13px;
+            color: #aaa;
+            margin-left: 6px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            background: #333;
+            color: white;
+            border: 1px solid #555;
+            padding: 10px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus {
+            border-color: #aaa;
+        }
+        input[type="submit"] {
+            background: #555;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background: #777;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="voxxel logo.svg" alt="Voxxel Logo">
+        </div>
+        <div class="links">
+            <a href="index.html">Work</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+
+            <label for="number">
+                Phone Number
+                <span class="optional-tag">(optional)</span>
+            </label>
+            <input type="tel" id="number" name="number" placeholder="+91 00000 00000">
+
+            <label for="title">Title:</label>
+            <textarea id="title" name="title" rows="1" cols="50" placeholder="Enter a title for your enquiry..." required></textarea>
+
+            <label for="enquiry">Enquiry Message:</label>
+            <textarea id="enquiry" name="enquiry" rows="5" cols="50" placeholder="Tell us about your project or enquiry..." required></textarea>
+            
+
+            <input type="submit" value="Send Enquiry">
+        </form>
+    </div>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.send("service_f8hpwrs", "template_9mu5njf", {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                number: document.getElementById('number').value || 'Not provided',
+                title: document.getElementById('title').value,
+                enquiry: document.getElementById('enquiry').value
+            }).then(function(response) {
+                alert('Enquiry sent successfully!');
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                alert('Failed to send enquiry. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>
