@@ -1,0 +1,9 @@
+{
+  "name": "voxxel-portfolio",
+  "private": true,
+  "scripts": {
+    "build": "node gallery-tools.cjs build",
+    "dev": "node gallery-tools.cjs serve",
+    "start": "node gallery-tools.cjs serve"
+  }
+}

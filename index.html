@@ -47,10 +47,10 @@
             gap: 20px;
             height: 750px;
             grid-template-rows: 1fr 1fr;
-            grid-template-columns: repeat(7, 1fr);
+            grid-template-columns: repeat(14, 1fr);
             grid-template-areas: 
-                "block1 block1 block1 block2 block2 block2 block2"
-                "block3 block3 block3 block3 block4 block4 block4";
+                "block1 block1 block1 block1 block1 block1 block1 block1 block2 block2 block2 block2 block2 block2"
+                "block3 block3 block3 block3 block3 block3 block3 block4 block4 block4 block4 block4 block4 block4";
             width: 80%;
             margin: 0px auto;
             position: relative;
@@ -66,6 +66,7 @@
                     "block3"
                     "block4";
                 height: auto;
+                grid-auto-rows: minmax(260px, auto);
             }
         }
 
@@ -81,9 +82,9 @@
         }
 
         /* ── Shared media styles ──────────────────────── */
-        .block1 img,
+        .block1 video,
         .block2 img,
-        .block3 video,
+        .block3 img,
         .block4 img {
             width: 100%;
             height: 100%;
@@ -232,7 +233,7 @@
 </head>
 <body>
     <!-- Splash Screen -->
-    <div id="splashscreen" style="position:fixed;z-index:99999;inset:0;display:flex;align-items:center;justify-content:center;background:#fff;transition:opacity 0.6s;">
+    <div id="splashscreen" style="position:fixed;z-index:99999;inset:0;display:flex;align-items:center;justify-content:center;background:#fff;transition:opacity 0.3s;">
         <img src="voxxel logo.svg" alt="Voxxel Logo" style="height:100px;width:auto;filter:invert(1);">
     </div>
     <nav>
@@ -249,13 +250,13 @@
     <div id="maingrid">
 
         <section class="block1">
-            <a href="artwork.html">
-                <img src="angel to the rescue draft 2.png" alt="">
+            <a href="animation.html">
+                <video src="wo face draft 1.mp4" loop autoplay muted playsinline preload="auto"></video>
                 <div class="dark"></div>
-                <div class="overlay"><h1 class="hover-underline">ARTWORK</h1></div>
+                <div class="overlay"><h1 class="hover-underline">VFX & ANIMATION</h1></div>
             </a>
         </section>
-                
+
         <section class="block2">
             <a href="archviz.html">
                 <img src="Image22.png" alt="">
@@ -265,36 +266,36 @@
         </section>
 
         <section class="block3">
-            <a href="animation.html">
-                <video src="wo face draft 1.mp4" loop autoplay muted playsinline preload="auto"></video>
-                <div class="dark"></div>
-                <div class="overlay"><h1 class="hover-underline">VFX & ANIMATION</h1></div>
-            </a>
-        </section>
-
-        <section class="block4">
             <a href="mockups.html">
                 <img src="Tilt.png" alt="Mockup">
                 <div class="dark"></div>
                 <div class="overlay"><h1 class="hover-underline">MOCKUPS</h1></div>
             </a>
         </section>
+
+        <section class="block4">
+            <a href="artwork.html">
+                <img src="angel to the rescue draft 2.png" alt="">
+                <div class="dark"></div>
+                <div class="overlay"><h1 class="hover-underline">ARTWORK</h1></div>
+            </a>
+        </section>
         
     </div>
 
     <script>
-        // Splash screen fade out after 1s
+        // Splash screen fades out after 0.5s
         window.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
                 var splash = document.getElementById('splashscreen');
                 if(splash) {
                     splash.style.opacity = '0';
-                    setTimeout(function(){ splash.style.display = 'none'; }, 600);
+                    setTimeout(function(){ splash.style.display = 'none'; }, 300);
                 }
-            }, 1000);
+            }, 500);
         });
         document.addEventListener('DOMContentLoaded', function () {
-            var vids = document.querySelectorAll('.block3 video, .block4 video');
+            var vids = document.querySelectorAll('#maingrid video');
 
             // Stagger playback so both videos don't decode simultaneously
             vids.forEach(function(v, i) {

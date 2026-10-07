@@ -1,0 +1,191 @@
+// Generated automatically by npm run build. Do not edit.
+window.galleryData = {
+  "3D Artwork": [
+    {
+      "name": "2a.png",
+      "src": "3D%20Artwork/2a.png?v=3ca7dc5f6f887610",
+      "type": "image"
+    },
+    {
+      "name": "100.png",
+      "src": "3D%20Artwork/100.png?v=cdf3e83d7d459f5f",
+      "type": "image"
+    },
+    {
+      "name": "Boat.png",
+      "src": "3D%20Artwork/Boat.png?v=2beed6c63714b443",
+      "type": "image"
+    },
+    {
+      "name": "Castle 3.png",
+      "src": "3D%20Artwork/Castle%203.png?v=5221a3cb4abd9286",
+      "type": "image"
+    },
+    {
+      "name": "caved.png",
+      "src": "3D%20Artwork/caved.png?v=6868281f2183fc77",
+      "type": "image"
+    },
+    {
+      "name": "clock alley.png",
+      "src": "3D%20Artwork/clock%20alley.png?v=d8ff833e7ff39ae5",
+      "type": "image"
+    },
+    {
+      "name": "oo.png",
+      "src": "3D%20Artwork/oo.png?v=ee3279ef62826994",
+      "type": "image"
+    },
+    {
+      "name": "sp.png",
+      "src": "3D%20Artwork/sp.png?v=7202815965eee980",
+      "type": "image"
+    },
+    {
+      "name": "Torus.png",
+      "src": "3D%20Artwork/Torus.png?v=b9e32ed722e596de",
+      "type": "image"
+    }
+  ],
+  "ArchVis": [
+    {
+      "name": "1.png",
+      "src": "ArchVis/1.png?v=f0fba4be91cd9635",
+      "type": "image"
+    },
+    {
+      "name": "2.png",
+      "src": "ArchVis/2.png?v=8f721ad6bff4c641",
+      "type": "image"
+    },
+    {
+      "name": "3.png",
+      "src": "ArchVis/3.png?v=31da7b3d3ae4b4fa",
+      "type": "image"
+    },
+    {
+      "name": "4.png",
+      "src": "ArchVis/4.png?v=24a2433bd5b5e881",
+      "type": "image"
+    },
+    {
+      "name": "5.png",
+      "src": "ArchVis/5.png?v=421e3b8c9bf79c1b",
+      "type": "image"
+    },
+    {
+      "name": "6.png",
+      "src": "ArchVis/6.png?v=34b85646f39b8584",
+      "type": "image"
+    },
+    {
+      "name": "7.png",
+      "src": "ArchVis/7.png?v=20365b2558544cf1",
+      "type": "image"
+    },
+    {
+      "name": "8.png",
+      "src": "ArchVis/8.png?v=cd120185920050c2",
+      "type": "image"
+    },
+    {
+      "name": "9.png",
+      "src": "ArchVis/9.png?v=95d8f1aa1c6f1e2e",
+      "type": "image"
+    },
+    {
+      "name": "10.png",
+      "src": "ArchVis/10.png?v=7ce6736bf26a168f",
+      "type": "image"
+    },
+    {
+      "name": "11.png",
+      "src": "ArchVis/11.png?v=c85fe30d9e634604",
+      "type": "image"
+    },
+    {
+      "name": "12.png",
+      "src": "ArchVis/12.png?v=cb5200ae1ff68211",
+      "type": "image"
+    },
+    {
+      "name": "13.png",
+      "src": "ArchVis/13.png?v=f62567d946c6e33b",
+      "type": "image"
+    },
+    {
+      "name": "14.png",
+      "src": "ArchVis/14.png?v=edcd24e8073383e4",
+      "type": "image"
+    },
+    {
+      "name": "15.png",
+      "src": "ArchVis/15.png?v=6a4527ba1c80137b",
+      "type": "image"
+    },
+    {
+      "name": "a-planet-with-clouds-and-water-4b-3840x2400.jpg",
+      "src": "ArchVis/a-planet-with-clouds-and-water-4b-3840x2400.jpg?v=38ab995cd8e05ea5",
+      "type": "image"
+    }
+  ],
+  "3D Mockups": [
+    {
+      "name": "j1.jpg",
+      "src": "3D%20Mockups/j1.jpg?v=8e07e584fd2210e5",
+      "type": "image"
+    },
+    {
+      "name": "red ring.png",
+      "src": "3D%20Mockups/red%20ring.png?v=bdb10756bf0886a0",
+      "type": "image"
+    },
+    {
+      "name": "T-Shirt Front.png",
+      "src": "3D%20Mockups/T-Shirt%20Front.png?v=e20c74b31144fbff",
+      "type": "image"
+    },
+    {
+      "name": "T-Shirt Tilt.png",
+      "src": "3D%20Mockups/T-Shirt%20Tilt.png?v=a1bbfb2dae164561",
+      "type": "image"
+    }
+  ],
+  "VFX & Animations": [
+    {
+      "name": "1.mp4",
+      "src": "VFX%20%26%20Animations/1.mp4?v=0a4f5b7d8e805fd3",
+      "type": "video"
+    },
+    {
+      "name": "2.mp4",
+      "src": "VFX%20%26%20Animations/2.mp4?v=bd49a88e8eb9a6c8",
+      "type": "video"
+    },
+    {
+      "name": "3.mp4",
+      "src": "VFX%20%26%20Animations/3.mp4?v=015b22d1c7aa5769",
+      "type": "video"
+    },
+    {
+      "name": "4.mp4",
+      "src": "VFX%20%26%20Animations/4.mp4?v=4e6d07bb0bfa2b26",
+      "type": "video"
+    },
+    {
+      "name": "5.mp4",
+      "src": "VFX%20%26%20Animations/5.mp4?v=889e429222bd3d17",
+      "type": "video"
+    },
+    {
+      "name": "6.mp4",
+      "src": "VFX%20%26%20Animations/6.mp4?v=26295096951ff30b",
+      "type": "video"
+    },
+    {
+      "name": "7.mp4",
+      "src": "VFX%20%26%20Animations/7.mp4?v=0c0891fa05a8918c",
+      "type": "video"
+    }
+  ]
+};
